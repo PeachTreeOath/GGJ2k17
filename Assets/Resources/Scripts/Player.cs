@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float speed = 2f; // Watch out for stale inspector data here...
+    public float speed = 10f; // Watch out for stale inspector data here...
 
     private LineColor currColor;
     private SpriteRenderer spriteRenderer;
@@ -44,19 +44,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Fire3"))
         {
             currColor = LineColor.RED;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Fire2"))
         {
             currColor = LineColor.GREEN;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Fire1"))
         {
             currColor = LineColor.BLUE;
         }
-        else if (Input.GetKeyDown(KeyCode.F))
+        else if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire4"))
         {
             currColor = LineColor.YELLOW;
         }
