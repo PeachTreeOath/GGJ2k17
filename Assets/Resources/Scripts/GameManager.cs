@@ -25,4 +25,21 @@ public class GameManager : Singleton<GameManager>
     {
 
     }
+
+    public void GameOver()
+    {
+        //CameraFollow camera = Camera.main.gameObject.GetComponent<CameraFollow>();
+        Camera[] cameras = new Camera[2];
+        Camera.GetAllCameras(cameras);
+
+        foreach(Camera camera in cameras)
+        {
+            if (camera != null)
+            {
+                CameraFollow cf = camera.gameObject.GetComponent<CameraFollow>();
+                if (cf != null)
+                    cf.isPlaying = false;
+            }
+        }
+    }
 }

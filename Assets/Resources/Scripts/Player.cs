@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -79,6 +77,11 @@ public class Player : MonoBehaviour
                     transform.Rotate(Vector3.forward, -180);
                 }
             }
+        }
+
+        if (col.tag.Equals("Border"))
+        {
+            GameManager.instance.GameOver();
         }
     }
 }
