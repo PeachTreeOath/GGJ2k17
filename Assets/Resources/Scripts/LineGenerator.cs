@@ -5,13 +5,15 @@ using UnityEngine;
 public class LineGenerator : Singleton<LineGenerator> {
 
     private GameObject lineFab;
+    private GameObject objectFolder;
     public int numLines = 10;
 
 	// Use this for initialization
 	void Start () {
         lineFab = Resources.Load<GameObject>("Prefabs/Line");
+        objectFolder = GameObject.Find("Objects");
 
-        for(int i = 0; i < numLines; i++)
+        for (int i = 0; i < numLines; i++)
         {
             GenLine();
         }
@@ -25,6 +27,7 @@ public class LineGenerator : Singleton<LineGenerator> {
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
         line.CreateLine(x, 0, angle, LineColor.GREEN);
+        lineObj.transform.SetParent(objectFolder.transform);
     }
 
 
