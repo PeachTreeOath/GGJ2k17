@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private float velocity;
+    private float speed;
 
     private LineColor currColor;
     private SpriteRenderer spriteRenderer;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        velocity = 1f;
+        speed = 1f;
         currColor = LineColor.GREEN;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -65,5 +65,21 @@ public class Player : MonoBehaviour
             currColor = LineColor.YELLOW;
         }
         SwitchColor();
+
+        transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        // When colliding with a new line and colors match, absorb angle and rotate
+        Line line = col.GetComponent<Line>();
+        if(line != null)
+        {
+            transform.rotation = line.transform.rotation;
+            if (transform.rotation.eulerAngles.z > 90)
+            {
+                transform.Rotate(Vector3.forward, -180);
+            }
+        }
     }
 }

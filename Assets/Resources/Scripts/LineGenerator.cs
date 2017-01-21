@@ -17,11 +17,11 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GenStartLines();
 
+        // Genning arbitrary lines until we have a solution for movement
         for (int i = 0; i < numLines; i++)
         {
             GenLine(LineColor.BLUE);
         }
-
         for (int i = 0; i < numLines; i++)
         {
             GenLine(LineColor.RED);
@@ -62,7 +62,6 @@ public class LineGenerator : Singleton<LineGenerator>
             case LineColor.YELLOW:
                 mat = GameManager.instance.yellowMat;
                 break;
-
         }
 
         float x = Random.Range(-10, 10);
