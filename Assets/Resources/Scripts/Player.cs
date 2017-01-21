@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currColor = 
+        currColor = LineColor.GREEN;
 	}
 	
 	// Update is called once per frame
