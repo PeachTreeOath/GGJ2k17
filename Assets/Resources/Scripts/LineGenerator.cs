@@ -20,7 +20,7 @@ public class LineGenerator : Singleton<LineGenerator> {
     private void GenLine()
     {
         float x = Random.Range(-10, 10);
-        float angle = Random.Range(30,90);
+        float angle = Random.Range(30,150);
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
