@@ -6,7 +6,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
     private GameObject lineFab;
     private GameObject objectFolder;
-    private int numLines = 2; // Maybe change to public later
+    public int numLines = 10; // Maybe change to public later
 
     private float previousCamLoc = 0;
     private float currCamLoc = 0;
@@ -47,19 +47,45 @@ public class LineGenerator : Singleton<LineGenerator>
     // Create a sequence of starting lines for tutorial. Currently just gens 1 line for testing
     private void GenStartLines()
     {
-        GameObject lineObj = Instantiate<GameObject>(lineFab);
-        Line line = lineObj.GetComponent<Line>();
-        line.CreateLine(-7, 0, 20, LineColor.RED, GameManager.instance.redMat);
-        lineObj.transform.SetParent(objectFolder.transform);
+        GameObject redLineObj = Instantiate<GameObject>(lineFab);
+        Line redLine = redLineObj.GetComponent<Line>();
+        redLine.CreateLine(-7, 0, 20, LineColor.RED, GameManager.instance.redMat);
+        redLineObj.transform.SetParent(objectFolder.transform);
+
+        GameObject greenLineObj = Instantiate<GameObject>(lineFab);
+        Line greenLine = greenLineObj.GetComponent<Line>();
+        greenLine.CreateLine(0, 0, 160, LineColor.GREEN, GameManager.instance.greenMat);
+        greenLineObj.transform.SetParent(objectFolder.transform);
+
+
+        GameObject blueLineObj = Instantiate<GameObject>(lineFab);
+        Line blueLine = blueLineObj.GetComponent<Line>();
+        blueLine.CreateLine(7, 0, 40, LineColor.BLUE, GameManager.instance.blueMat);
+        blueLineObj.transform.SetParent(objectFolder.transform);
+
+        GameObject yellowLineObj = Instantiate<GameObject>(lineFab);
+        Line yellowLine = yellowLineObj.GetComponent<Line>();
+        yellowLine.CreateLine(14, 0, 120, LineColor.YELLOW, GameManager.instance.yellowMat);
+        yellowLineObj.transform.SetParent(objectFolder.transform);
     }
 
     public void GenLine(LineColor color)
     {
         Material mat = GetMaterialFromColor(color);
-        // Temp code to gen lines in starting area
-        float x = Random.Range(-5, 15);
+        GenLine(color, Random.Range(15,90));
+    }
+
+    public void GenLine(LineColor color, float x)
+    {
+        Material mat = GetMaterialFromColor(color);
+
         // Lines currently cap at 30 deg angle minimums, change as needed
         float angle = Random.Range(30, 150);
+
+        while(angle > 70 && angle < 110)
+        {
+            angle = Random.Range(30, 150);
+        }
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
@@ -76,21 +102,24 @@ public class LineGenerator : Singleton<LineGenerator>
     {
         Material mat = GetMaterialFromColor(color);
         // Temp code to gen lines in starting area
-        float x = Random.Range(offset, offset+10);
+        float x = Random.Range(offset+90, offset+90);
         // Lines currently cap at 30 deg angle minimums, change as needed
-        float angle = Random.Range(30, 150);
 
-        GameObject lineObj = Instantiate<GameObject>(lineFab);
-        Line line = lineObj.GetComponent<Line>();
-        line.CreateLine(x, 0, angle, color, mat);
-        lineObj.transform.SetParent(objectFolder.transform);
+        GenLine(color, x);
+
+        // float angle = Random.Range(50, 130);
+
+        // GameObject lineObj = Instantiate<GameObject>(lineFab);
+        // Line line = lineObj.GetComponent<Line>();
+        // line.CreateLine(x, 0, angle, color, mat);
+        // lineObj.transform.SetParent(objectFolder.transform);
     }
 
     /// <summary>
     /// Generates a random line color.
     /// </summary>
     /// <returns></returns>
-    private LineColor GetRandomColor()
+    public LineColor GetRandomColor()
     {
         switch(Random.Range(1, 5))
         {

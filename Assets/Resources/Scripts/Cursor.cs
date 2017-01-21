@@ -38,10 +38,11 @@ public class Cursor : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x + speed * Time.deltaTime, leftClamp + cam.transform.position.x, rightClamp + cam.transform.position.x), yValue, zValue);
         }
 
-        // Adjust clamps in inspector for cursor
-        // Detect spacebar / enter
-        // Call LineGenerator.instance.GenLine() and place at cursor location, but w a yValue of 0 and zValue of 0
-        // mimic the random code gen
-        
+        // Detect spacebar / enter to drop line
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            LineGenerator instance = LineGenerator.instance;
+            instance.GenLine(instance.GetRandomColor(), (float) transform.position.x);
+        }
     }
 }
