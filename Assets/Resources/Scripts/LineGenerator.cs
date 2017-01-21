@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineGenerator : Singleton<LineGenerator> {
+public class LineGenerator : Singleton<LineGenerator>
+{
 
     private GameObject lineFab;
     private GameObject objectFolder;
-    public int numLines = 10;
+    public int numLines = 2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         lineFab = Resources.Load<GameObject>("Prefabs/Line");
         objectFolder = GameObject.Find("Objects");
 
@@ -17,12 +19,13 @@ public class LineGenerator : Singleton<LineGenerator> {
         {
             GenLine();
         }
+
     }
 
     private void GenLine()
     {
         float x = Random.Range(-10, 10);
-        float angle = Random.Range(30,150);
+        float angle = Random.Range(30, 150);
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
@@ -31,8 +34,9 @@ public class LineGenerator : Singleton<LineGenerator> {
     }
 
 
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
