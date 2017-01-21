@@ -53,7 +53,7 @@ public class LineGenerator : Singleton<LineGenerator>
         lineObj.transform.SetParent(objectFolder.transform);
     }
 
-    private void GenLine(LineColor color)
+    public void GenLine(LineColor color)
     {
         Material mat = GetMaterialFromColor(color);
         // Temp code to gen lines in starting area
