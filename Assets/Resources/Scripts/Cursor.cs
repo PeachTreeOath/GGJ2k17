@@ -7,21 +7,26 @@ public class Cursor : MonoBehaviour
     private GameObject cam;
     private GameObject lBorder;
     private GameObject rBorder;
+    private Line previewLine;
 
     public float speed;
     private float yValue;
     private float zValue;
     public float leftClamp;
     public float rightClamp;
+    private GameObject objectFolder;
 
     // Use this for initialization
     void Start()
     {
+        objectFolder = GameObject.Find("Objects");
         cam = GameObject.Find("Main Camera");
         lBorder = GameObject.Find("LBorder");
         rBorder = GameObject.Find("RBorder");
         yValue = transform.position.y;
         zValue = transform.position.z;
+
+        previewLine = LineGenerator.instance.GenPreviewLine(transform);
     }
 
     // Update is called once per frame
@@ -41,8 +46,9 @@ public class Cursor : MonoBehaviour
         // Detect spacebar / enter to drop line
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            LineGenerator instance = LineGenerator.instance;
-            instance.GenLine(instance.GetRandomColor(), (float) transform.position.x);
+            previewLine.GetComponent<BoxCollider2D>().enabled = true;
+            previewLine.transform.SetParent(objectFolder.transform);
+            previewLine = LineGenerator.instance.GenPreviewLine(transform);
         }
     }
 }

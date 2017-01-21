@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 using UnityEngine;
 
 public class LineGenerator : Singleton<LineGenerator>
@@ -57,7 +57,6 @@ public class LineGenerator : Singleton<LineGenerator>
         greenLine.CreateLine(0, 0, 160, LineColor.GREEN, GameManager.instance.greenMat);
         greenLineObj.transform.SetParent(objectFolder.transform);
 
-
         GameObject blueLineObj = Instantiate<GameObject>(lineFab);
         Line blueLine = blueLineObj.GetComponent<Line>();
         blueLine.CreateLine(7, 0, 40, LineColor.BLUE, GameManager.instance.blueMat);
@@ -69,10 +68,32 @@ public class LineGenerator : Singleton<LineGenerator>
         yellowLineObj.transform.SetParent(objectFolder.transform);
     }
 
+    public Line GenPreviewLine(Transform parentTransform)
+    {
+        LineColor color = GetRandomColor();
+        Material mat = GetMaterialFromColor(color);
+
+        // Lines currently cap at 30 deg angle minimums, change as needed
+        float angle = UnityEngine.Random.Range(30, 150);
+
+        while (angle > 70 && angle < 110)
+        {
+            angle = UnityEngine.Random.Range(30, 150);
+        }
+
+        GameObject lineObj = Instantiate<GameObject>(lineFab);
+        Line line = lineObj.GetComponent<Line>();
+        line.CreateLine(parentTransform.position.x, parentTransform.position.y, angle, color, mat);
+        line.GetComponent<BoxCollider2D>().enabled = false;
+        line.transform.SetParent(parentTransform);
+
+        return line;
+    }
+
     public void GenLine(LineColor color)
     {
         Material mat = GetMaterialFromColor(color);
-        GenLine(color, Random.Range(15,90));
+        GenLine(color, UnityEngine.Random.Range(15, 90));
     }
 
     public void GenLine(LineColor color, float x)
@@ -80,11 +101,11 @@ public class LineGenerator : Singleton<LineGenerator>
         Material mat = GetMaterialFromColor(color);
 
         // Lines currently cap at 30 deg angle minimums, change as needed
-        float angle = Random.Range(30, 150);
+        float angle = UnityEngine.Random.Range(30, 150);
 
-        while(angle > 70 && angle < 110)
+        while (angle > 70 && angle < 110)
         {
-            angle = Random.Range(30, 150);
+            angle = UnityEngine.Random.Range(30, 150);
         }
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
@@ -102,7 +123,7 @@ public class LineGenerator : Singleton<LineGenerator>
     {
         Material mat = GetMaterialFromColor(color);
         // Temp code to gen lines in starting area
-        float x = Random.Range(offset+90, offset+90);
+        float x = UnityEngine.Random.Range(offset + 90, offset + 90);
         // Lines currently cap at 30 deg angle minimums, change as needed
 
         GenLine(color, x);
@@ -121,7 +142,7 @@ public class LineGenerator : Singleton<LineGenerator>
     /// <returns></returns>
     public LineColor GetRandomColor()
     {
-        switch(Random.Range(1, 5))
+        switch (UnityEngine.Random.Range(1, 5))
         {
             case 1:
                 return LineColor.BLUE;
@@ -166,7 +187,7 @@ public class LineGenerator : Singleton<LineGenerator>
     void Update()
     {
         currCamLoc = Camera.main.gameObject.transform.position.x;
-        if ( currCamLoc - previousCamLoc > LINE_DELTA)
+        if (currCamLoc - previousCamLoc > LINE_DELTA)
         {
             GenLineAt(currCamLoc, GetRandomColor());
 
