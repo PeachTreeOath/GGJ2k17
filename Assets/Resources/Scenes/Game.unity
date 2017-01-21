@@ -930,8 +930,13 @@ Prefab:
     - target: {fileID: 114697619034330964, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
         type: 2}
       propertyPath: speed
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212863096995464094, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 152b91b0f5bbd7341beba8f40679a567, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be5c0f239a7e9aa4ea415fcac6405d3e, type: 2}
   m_IsPrefabParent: 0

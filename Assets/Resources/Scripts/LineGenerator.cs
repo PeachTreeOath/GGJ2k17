@@ -7,7 +7,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
     private GameObject lineFab;
     private GameObject objectFolder;
-    private int numLines = 5; // Maybe change to public later
+    private int numLines = 2; // Maybe change to public later
 
     // Use this for initialization
     void Start()
@@ -65,7 +65,7 @@ public class LineGenerator : Singleton<LineGenerator>
         }
 
         // Temp code to gen lines in starting area
-        float x = Random.Range(-5, 30);
+        float x = Random.Range(-5, 15);
         // Lines currently cap at 30 deg angle minimums, change as needed
         float angle = Random.Range(30, 150);
 
