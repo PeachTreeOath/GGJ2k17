@@ -48,6 +48,7 @@ public class Cursor : MonoBehaviour
         {
             previewLine.GetComponent<BoxCollider2D>().enabled = true;
             previewLine.transform.SetParent(objectFolder.transform);
+            previewLine.transform.localScale = new Vector3(previewLine.transform.localScale.x, 1, previewLine.transform.localScale.z);
             previewLine = LineGenerator.instance.GenPreviewLine(transform);
         }
     }

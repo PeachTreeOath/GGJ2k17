@@ -86,7 +86,7 @@ public class LineGenerator : Singleton<LineGenerator>
         line.CreateLine(parentTransform.position.x, parentTransform.position.y, angle, color, mat);
         line.GetComponent<BoxCollider2D>().enabled = false;
         line.transform.SetParent(parentTransform);
-
+        line.transform.localScale = new Vector3(line.transform.localScale.x, 5, line.transform.localScale.z);
         return line;
     }
 
