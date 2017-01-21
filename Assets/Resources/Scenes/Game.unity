@@ -1102,6 +1102,11 @@ Prefab:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 212863096995464094, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 437661687
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be5c0f239a7e9aa4ea415fcac6405d3e, type: 2}
   m_IsPrefabParent: 0
