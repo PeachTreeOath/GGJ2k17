@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class LineGenerator : Singleton<LineGenerator>
 {
-    private Material blueMat;
-    private Material redMat;
-    private Material greenMat;
-    private Material yellowMat;
 
     private GameObject lineFab;
     private GameObject objectFolder;
@@ -16,12 +12,6 @@ public class LineGenerator : Singleton<LineGenerator>
     // Use this for initialization
     void Start()
     {
-        // Material is sent from here to the line so we don't have to load resources all the time
-        blueMat = Resources.Load<Material>("Materials/BlueMat");
-        redMat = Resources.Load<Material>("Materials/RedMat");
-        greenMat = Resources.Load<Material>("Materials/GreenMat");
-        yellowMat = Resources.Load<Material>("Materials/YellowMat");
-
         lineFab = Resources.Load<GameObject>("Prefabs/Line");
         objectFolder = GameObject.Find("Objects");
 
@@ -50,16 +40,16 @@ public class LineGenerator : Singleton<LineGenerator>
         switch (color)
         {
             case LineColor.RED:
-                mat = redMat;
+                mat = GameManager.instance.redMat;
                 break;
             case LineColor.GREEN:
-                mat = greenMat;
+                mat = GameManager.instance.greenMat;
                 break;
             case LineColor.BLUE:
-                mat = blueMat;
+                mat = GameManager.instance.blueMat;
                 break;
             case LineColor.YELLOW:
-                mat = yellowMat;
+                mat = GameManager.instance.yellowMat;
                 break;
 
         }
