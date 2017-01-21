@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.034482718, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.22745098, g: 0.6117647, b: 0.21568628, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -626,7 +626,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1083108016}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 10, y: 0.02, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495070759}
@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  leftClamp: 1
+  leftClamp: 10
   rightClamp: 75
 --- !u!1 &1268932059
 GameObject:
@@ -805,7 +805,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3897059, g: 0.3897059, b: 0.3897059, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1034,7 +1034,7 @@ Prefab:
     - target: {fileID: 114506410340871234, guid: 11b1a48491f343149909d553c255e369,
         type: 2}
       propertyPath: numLines
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11b1a48491f343149909d553c255e369, type: 2}
@@ -1081,7 +1081,7 @@ Prefab:
     - target: {fileID: 114697619034330964, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
         type: 2}
       propertyPath: speed
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212863096995464094, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
         type: 2}
@@ -1090,6 +1090,16 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 152b91b0f5bbd7341beba8f40679a567, type: 2}
     - target: {fileID: 1052075407657116, guid: be5c0f239a7e9aa4ea415fcac6405d3e, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 58634033989121732, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 50276084072400624, guid: be5c0f239a7e9aa4ea415fcac6405d3e,
+        type: 2}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
