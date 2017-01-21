@@ -6,19 +6,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private float speed;
+    public float speed = 2f; // Watch out for stale inspector data here...
 
     private LineColor currColor;
     private SpriteRenderer spriteRenderer;
 
-    // Check if player is riding line
-    private bool onTrack;
-
     // Use this for initialization
     void Start()
     {
-        speed = 1f;
-        currColor = LineColor.GREEN;
+        currColor = LineColor.RED;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         SwitchColor();
@@ -73,12 +69,15 @@ public class Player : MonoBehaviour
     {
         // When colliding with a new line and colors match, absorb angle and rotate
         Line line = col.GetComponent<Line>();
-        if(line != null)
+        if (line != null)
         {
-            transform.rotation = line.transform.rotation;
-            if (transform.rotation.eulerAngles.z > 90)
+            if (line.color == currColor)
             {
-                transform.Rotate(Vector3.forward, -180);
+                transform.rotation = line.transform.rotation;
+                if (transform.rotation.eulerAngles.z > 90)
+                {
+                    transform.Rotate(Vector3.forward, -180);
+                }
             }
         }
     }

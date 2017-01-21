@@ -41,7 +41,7 @@ public class LineGenerator : Singleton<LineGenerator>
     {
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
-        line.CreateLine(-5, 0, 30, LineColor.GREEN, GameManager.instance.greenMat);
+        line.CreateLine(-7, 0, 20, LineColor.RED, GameManager.instance.redMat);
         lineObj.transform.SetParent(objectFolder.transform);
     }
 
@@ -64,7 +64,9 @@ public class LineGenerator : Singleton<LineGenerator>
                 break;
         }
 
-        float x = Random.Range(-10, 10);
+        // Temp code to gen lines in starting area
+        float x = Random.Range(-5, 15);
+        // Lines currently cap at 30 deg angle minimums, change as needed
         float angle = Random.Range(30, 150);
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
