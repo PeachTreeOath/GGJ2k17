@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Fire3"))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Fire3"))
         {
             currColor = LineColor.RED;
         }
@@ -52,11 +52,11 @@ public class Player : MonoBehaviour
         {
             currColor = LineColor.GREEN;
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Fire1"))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Fire1"))
         {
             currColor = LineColor.BLUE;
         }
-        else if (Input.GetKeyDown(KeyCode.F) || Input.GetButtonDown("Fire4"))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("Fire4"))
         {
             currColor = LineColor.YELLOW;
         }
