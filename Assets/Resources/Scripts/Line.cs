@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Line : MonoBehaviour {
 
-    public Vector2 start;
-    public Vector2 end;
     public LineColor color;
-	
+
+    public void CreateLine(float x, float y, float angle, LineColor color)
+    {
+        transform.position = new Vector2(x, y);
+        transform.Rotate(Vector3.forward, angle);
+        this.color = color;
+    }
 }
