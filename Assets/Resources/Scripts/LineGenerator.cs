@@ -15,6 +15,8 @@ public class LineGenerator : Singleton<LineGenerator>
         lineFab = Resources.Load<GameObject>("Prefabs/Line");
         objectFolder = GameObject.Find("Objects");
 
+        GenStartLines();
+
         for (int i = 0; i < numLines; i++)
         {
             GenLine(LineColor.BLUE);
@@ -32,6 +34,15 @@ public class LineGenerator : Singleton<LineGenerator>
         {
             GenLine(LineColor.YELLOW);
         }
+    }
+
+    // Create a sequence of starting lines for tutorial. Currently just gens 1 line for testing
+    private void GenStartLines()
+    {
+        GameObject lineObj = Instantiate<GameObject>(lineFab);
+        Line line = lineObj.GetComponent<Line>();
+        line.CreateLine(-5, 0, 30, LineColor.GREEN, GameManager.instance.greenMat);
+        lineObj.transform.SetParent(objectFolder.transform);
     }
 
     private void GenLine(LineColor color)
