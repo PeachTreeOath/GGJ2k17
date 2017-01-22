@@ -13,7 +13,7 @@ public class AudioManager : Singleton<AudioManager>
     protected override void Awake()
     {
         base.Awake();
-
+        SetDontDestroy();
         soundMap = new Dictionary<string, AudioClip>();
 
         musicChannel = Instantiate(Resources.Load<GameObject>("Prefabs/AudioChannel")).GetComponent<AudioSource>();
