@@ -4,7 +4,8 @@ using UnityEngine;
 public class LineGenerator : Singleton<LineGenerator>
 {
 
-    private GameObject lineFab;
+    public  GameObject lineFab;
+
     private GameObject objectFolder;
     public int numLines = 10; // Maybe change to public later
 
@@ -20,7 +21,7 @@ public class LineGenerator : Singleton<LineGenerator>
     // Use this for initialization
     void Start()
     {
-        lineFab = Resources.Load<GameObject>("Prefabs/Line");
+        //lineFab = Resources.Load<GameObject>("Prefabs/Line");
         objectFolder = GameObject.Find("Objects");
 
         GenStartLines();

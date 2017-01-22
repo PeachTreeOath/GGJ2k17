@@ -17,7 +17,7 @@ public class Cursor : MonoBehaviour
     private GameObject objectFolder;
 
     // Use this for initialization
-    void Start()
+    protected void Awake()
     {
         objectFolder = GameObject.Find("Objects");
         cam = GameObject.Find("Main Camera");
