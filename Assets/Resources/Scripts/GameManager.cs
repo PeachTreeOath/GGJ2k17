@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -20,11 +18,6 @@ public class GameManager : Singleton<GameManager>
         yellowMat = Resources.Load<Material>("Materials/YellowMat");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void GameOver()
     {

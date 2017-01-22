@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Line : MonoBehaviour
 {
 
     public LineColor color;
     public float angle;
+
+    private Camera mainCamera;
+    private Vector3 cameraPosition;
+
+    /// <summary>
+    /// Retrieve main camera on start
+    /// </summary>
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     public void CreateLine(float x, float y, float angle, LineColor color, Material mat)
     {
@@ -16,5 +24,21 @@ public class Line : MonoBehaviour
         this.color = color;
         this.angle = angle;
         GetComponent<SpriteRenderer>().material = mat;
+    }
+    
+    /// <summary>
+    /// When the line is offscreen
+    /// </summary>
+    public void LateUpdate()
+    {
+        if (mainCamera != null)
+        {
+            cameraPosition = mainCamera.gameObject.transform.position;
+      
+            if (cameraPosition.x - transform.position.x > 20)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
