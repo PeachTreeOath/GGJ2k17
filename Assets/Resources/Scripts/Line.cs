@@ -10,6 +10,8 @@ public class Line : MonoBehaviour
     private Vector3 cameraPosition;
     private float textureOffset = 0;
     private LineRenderer lineRenderer;
+    Transform start;
+    Transform end;
     /// <summary>
     /// Retrieve main camera on start
     /// </summary>
@@ -36,8 +38,8 @@ public class Line : MonoBehaviour
         this.angle = angle;
         //GetComponent<SpriteRenderer>().material = mat;
         lineRenderer = gameObject.GetComponent<LineRenderer>();
-        Transform start = transform.Find("Start");
-        Transform end = transform.Find("End");
+         start = transform.Find("Start");
+         end = transform.Find("End");
         lineRenderer.SetPosition(0, start.position);
         lineRenderer.SetPosition(1, end.position);
         // Material[] mats = new Material[2];
@@ -79,7 +81,11 @@ public class Line : MonoBehaviour
             textureOffset += .3f;
         }
         if (lineRenderer != null)
+        {
+            lineRenderer.SetPosition(0, start.position);
+            lineRenderer.SetPosition(1, end.position);
             lineRenderer.materials[1].SetTextureOffset("_MainTex", new Vector2(textureOffset, 0));
+        }
     }
     /// <summary>
     /// When the line is offscreen
