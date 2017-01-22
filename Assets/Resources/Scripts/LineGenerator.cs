@@ -126,7 +126,7 @@ public class LineGenerator : Singleton<LineGenerator>
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
         line.CreateLine(parentTransform.position.x, parentTransform.position.y, angle, color);
-        line.GetComponent<BoxCollider2D>().enabled = false;
+        line.GetComponent<BoxCollider2D>().enabled = true;
         line.transform.SetParent(parentTransform);
         line.transform.localScale = new Vector3(line.transform.localScale.x, 5, line.transform.localScale.z);
         return line;

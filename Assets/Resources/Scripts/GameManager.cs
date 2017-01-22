@@ -31,7 +31,11 @@ public class GameManager : Singleton<GameManager>
         redOuterGlowMat = Resources.Load<Material>("Materials/RedOuterGlowMat");
         greenOuterGlowMat = Resources.Load<Material>("Materials/GreenOuterGlowMat");
         yellowOuterGlowMat = Resources.Load<Material>("Materials/YellowOuterGlowMat");
+
+        
     }
+
+    
 
 
 
