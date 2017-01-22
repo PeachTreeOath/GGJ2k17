@@ -97,19 +97,21 @@ public class Player : MonoBehaviour
         {
         	if (line.color == LineColor.WHITE)
         	{
-        		GameManager.instance.GameOver();
+                GameManager.instance.GameOver();
         		speed = 0;
         		BGManager.instance.scrollSpeed = 0;
         	}
 
             if (line.color == currColor)
             {
+                AudioManager.instance.PlaySound("Line_Switch");
                 currLine = line;
             }
         }
 
         if (col.tag.Equals("Border"))
         {
+            
             GameManager.instance.GameOver();
             speed = 0;
             BGManager.instance.scrollSpeed = 0;

@@ -41,6 +41,7 @@ public class GameManager : Singleton<GameManager>
 
     public void GameOver()
     {
+        AudioManager.instance.PlaySound("Death_Sound");
         //CameraFollow camera = Camera.main.gameObject.GetComponent<CameraFollow>();
         Camera[] cameras = new Camera[2];
         Camera.GetAllCameras(cameras);
