@@ -7,7 +7,14 @@ public class GameManager : Singleton<GameManager>
     public Material redMat;
     public Material greenMat;
     public Material yellowMat;
-
+    public Material blueGlowMat;
+    public Material redGlowMat;
+    public Material greenGlowMat;
+    public Material yellowGlowMat;
+    public Material blueOuterGlowMat;
+    public Material redOuterGlowMat;
+    public Material greenOuterGlowMat;
+    public Material yellowOuterGlowMat;
     protected override void Awake()
     {
         base.Awake();
@@ -16,7 +23,16 @@ public class GameManager : Singleton<GameManager>
         redMat = Resources.Load<Material>("Materials/RedMat");
         greenMat = Resources.Load<Material>("Materials/GreenMat");
         yellowMat = Resources.Load<Material>("Materials/YellowMat");
+        blueGlowMat = Resources.Load<Material>("Materials/BlueGlowMat");
+        redGlowMat = Resources.Load<Material>("Materials/RedGlowMat");
+        greenGlowMat = Resources.Load<Material>("Materials/GreenGlowMat");
+        yellowGlowMat = Resources.Load<Material>("Materials/YellowGlowMat");
+        blueOuterGlowMat = Resources.Load<Material>("Materials/BlueOuterGlowMat");
+        redOuterGlowMat = Resources.Load<Material>("Materials/RedOuterGlowMat");
+        greenOuterGlowMat = Resources.Load<Material>("Materials/GreenOuterGlowMat");
+        yellowOuterGlowMat = Resources.Load<Material>("Materials/YellowOuterGlowMat");
     }
+
 
 
     public void GameOver()
