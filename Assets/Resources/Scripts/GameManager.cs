@@ -19,7 +19,7 @@ public class GameManager : Singleton<GameManager>
         greenMat = Resources.Load<Material>("Materials/GreenMat");
         yellowMat = Resources.Load<Material>("Materials/YellowMat");
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +32,7 @@ public class GameManager : Singleton<GameManager>
         Camera[] cameras = new Camera[2];
         Camera.GetAllCameras(cameras);
 
-        foreach(Camera camera in cameras)
+        foreach (Camera camera in cameras)
         {
             if (camera != null)
             {
@@ -41,5 +41,12 @@ public class GameManager : Singleton<GameManager>
                     cf.isPlaying = false;
             }
         }
+
+        //Display Game Over
+
+
+        GameOverPanel.instance.EnableGameOverPanel();
+
+        //SceneTransitionManager.instance.ReloadRoom();
     }
 }
