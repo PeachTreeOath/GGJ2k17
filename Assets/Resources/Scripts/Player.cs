@@ -82,11 +82,14 @@ public class Player : MonoBehaviour
         }
         SwitchColor();
 
-        Vector2 movementVector = currLine.transform.up * speed * Time.deltaTime;
-        transform.Translate(movementVector);
+        if (currLine != null)
+        {
+            Vector2 movementVector = currLine.transform.up * speed * Time.deltaTime;
+            transform.Translate(movementVector);
+        }
 
         //Have to offset this by the location of the player starting location
-        distanceTravelled = (transform.position.x + 7) * distanceScalar ;
+        distanceTravelled = (transform.position.x + 7) * distanceScalar;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -95,12 +98,12 @@ public class Player : MonoBehaviour
         Line line = col.GetComponent<Line>();
         if (line != null)
         {
-        	if (line.color == LineColor.WHITE)
-        	{
+            if (line.color == LineColor.WHITE)
+            {
                 GameManager.instance.GameOver();
-        		speed = 0;
-        		BGManager.instance.scrollSpeed = 0;
-        	}
+                speed = 0;
+                BGManager.instance.scrollSpeed = 0;
+            }
 
             if (line.color == currColor)
             {
@@ -111,7 +114,7 @@ public class Player : MonoBehaviour
 
         if (col.tag.Equals("Border"))
         {
-            
+
             GameManager.instance.GameOver();
             speed = 0;
             BGManager.instance.scrollSpeed = 0;

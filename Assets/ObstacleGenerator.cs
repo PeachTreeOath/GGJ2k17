@@ -16,8 +16,8 @@ public class ObstacleGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objectFolder = GameObject.Find("Objects");
-        GenObstacle(10, Random.Range(0,6));
-        GenObstacle(20, Random.Range(0, 6));
+        GenObstacle(10, Random.Range(0,5));
+        GenObstacle(20, Random.Range(0, 5));
 
     }
 
