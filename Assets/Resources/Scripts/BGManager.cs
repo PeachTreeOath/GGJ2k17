@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGManager : MonoBehaviour
+public class BGManager : Singleton<BGManager>
 {
     public float scrollSpeed;
     public int numBgs;
