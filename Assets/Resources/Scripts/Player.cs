@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -6,8 +7,11 @@ public class Player : MonoBehaviour
 
     public float speed = 10f; // Watch out for stale inspector data here...
 
+    private Line currLine;
     private LineColor currColor;
     private SpriteRenderer spriteRenderer;
+
+    ParticleSystem ps;
 
     // Use this for initialization
     void Start()
@@ -15,28 +19,49 @@ public class Player : MonoBehaviour
         currColor = LineColor.RED;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
+        ps = gameObject.GetComponentInChildren(typeof(ParticleSystem)) as ParticleSystem;
+        Debug.Log(ps.ToString());
+
         SwitchColor();
     }
 
     private void SwitchColor()
     {
         Material mat = null;
+
+        Gradient grad = new Gradient();
+        var col = ps.colorOverLifetime;
+        col.enabled = true;
+
+        grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f), new GradientColorKey(Color.red, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) } );
+
+        col.color = grad;
+
         switch (currColor)
         {
             case LineColor.RED:
-                mat = GameManager.instance.redMat;
+            	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.red, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
+                // mat = GameManager.instance.redMat;
                 break;
             case LineColor.GREEN:
-                mat = GameManager.instance.greenMat;
+                // mat = GameManager.instance.greenMat;
+            	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.green, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
+
                 break;
             case LineColor.BLUE:
-                mat = GameManager.instance.blueMat;
+            	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f), new GradientColorKey(Color.blue, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
+
+                // mat = GameManager.instance.blueMat;
                 break;
             case LineColor.YELLOW:
-                mat = GameManager.instance.yellowMat;
+            	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.yellow, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
+
+                // mat = GameManager.instance.yellowMat;
                 break;
         }
-        spriteRenderer.material = mat;
+
+        col.color = grad;
+        // spriteRenderer.material = mat;
     }
 
     // Update is called once per frame
@@ -60,7 +85,7 @@ public class Player : MonoBehaviour
         }
         SwitchColor();
 
-        transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
+        transform.Translate(currLine.transform.up * speed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -71,11 +96,7 @@ public class Player : MonoBehaviour
         {
             if (line.color == currColor)
             {
-                transform.rotation = line.transform.rotation;
-                if (transform.rotation.eulerAngles.z > 90)
-                {
-                    transform.Rotate(Vector3.forward, -180);
-                }
+            	currLine = line;
             }
         }
 

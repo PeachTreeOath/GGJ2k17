@@ -54,7 +54,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GameObject greenLineObj = Instantiate<GameObject>(lineFab);
         Line greenLine = greenLineObj.GetComponent<Line>();
-        greenLine.CreateLine(0, 0, 160, LineColor.GREEN, GameManager.instance.greenMat);
+        greenLine.CreateLine(0, 0, -20, LineColor.GREEN, GameManager.instance.greenMat);
         greenLineObj.transform.SetParent(objectFolder.transform);
 
         GameObject blueLineObj = Instantiate<GameObject>(lineFab);
@@ -64,7 +64,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GameObject yellowLineObj = Instantiate<GameObject>(lineFab);
         Line yellowLine = yellowLineObj.GetComponent<Line>();
-        yellowLine.CreateLine(14, 0, 120, LineColor.YELLOW, GameManager.instance.yellowMat);
+        yellowLine.CreateLine(14, 0, -30, LineColor.YELLOW, GameManager.instance.yellowMat);
         yellowLineObj.transform.SetParent(objectFolder.transform);
     }
 
@@ -74,11 +74,11 @@ public class LineGenerator : Singleton<LineGenerator>
         Material mat = GetMaterialFromColor(color);
 
         // Lines currently cap at 30 deg angle minimums, change as needed
-        float angle = UnityEngine.Random.Range(30, 150);
+        float angle = UnityEngine.Random.Range(-60, 60);
 
-        while (angle > 70 && angle < 110)
+        while (angle > -30 && angle < 30)
         {
-            angle = UnityEngine.Random.Range(30, 150);
+            angle = UnityEngine.Random.Range(-60, 60);
         }
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
@@ -101,11 +101,11 @@ public class LineGenerator : Singleton<LineGenerator>
         Material mat = GetMaterialFromColor(color);
 
         // Lines currently cap at 30 deg angle minimums, change as needed
-        float angle = UnityEngine.Random.Range(30, 150);
+        float angle = UnityEngine.Random.Range(-60, 60);
 
-        while (angle > 70 && angle < 110)
+        while (angle > -30 && angle < 30)
         {
-            angle = UnityEngine.Random.Range(30, 150);
+            angle = UnityEngine.Random.Range(-60, 60);
         }
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
