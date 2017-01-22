@@ -32,7 +32,7 @@ GenObstacle(40, 3);
 		GameObject obsObj = Instantiate<GameObject>(obstacles[type]);
 		Vector3 obsTrans = obsObj.transform.position;
         //TODO: Change before deploy
-		obsObj.transform.position = new Vector3(offset + 40, obsTrans.y, obsTrans.z);
+		obsObj.transform.position = new Vector3(offset + 90, obsTrans.y, obsTrans.z);
 		obsObj.transform.SetParent(objectFolder.transform);
 	}
 
