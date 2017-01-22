@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         ps = gameObject.GetComponentInChildren(typeof(ParticleSystem)) as ParticleSystem;
-        Debug.Log(ps.ToString());
 
         SwitchColor();
     }
@@ -41,22 +40,15 @@ public class Player : MonoBehaviour
         {
             case LineColor.RED:
             	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.red, 0.0f), new GradientColorKey(Color.red, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
-                // mat = GameManager.instance.redMat;
                 break;
             case LineColor.GREEN:
-                // mat = GameManager.instance.greenMat;
             	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.green, 0.0f), new GradientColorKey(Color.green, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
-
                 break;
             case LineColor.BLUE:
             	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.blue, 0.0f), new GradientColorKey(Color.blue, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
-
-                // mat = GameManager.instance.blueMat;
                 break;
             case LineColor.YELLOW:
             	grad.SetKeys( new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.yellow, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 1.0f) } );
-
-                // mat = GameManager.instance.yellowMat;
                 break;
         }
 
