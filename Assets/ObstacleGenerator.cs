@@ -29,8 +29,6 @@ public class ObstacleGenerator : MonoBehaviour {
 
 	public void GenObstacle(float offset, int type)
 	{
-
-
 		GameObject obsObj = Instantiate<GameObject>(obstacles[type]);
 		Vector3 obsTrans = obsObj.transform.position;
         //TODO: Change before deploy

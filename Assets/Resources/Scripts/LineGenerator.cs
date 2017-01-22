@@ -106,7 +106,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GameObject yellowLineObj = Instantiate<GameObject>(lineFab);
         Line yellowLine = yellowLineObj.GetComponent<Line>();
-        yellowLine.CreateLine(14, 0, -30, LineColor.YELLOW);
+        yellowLine.CreateLine(9, 0, -40, LineColor.YELLOW);
         yellowLineObj.transform.SetParent(objectFolder.transform);
     }
 

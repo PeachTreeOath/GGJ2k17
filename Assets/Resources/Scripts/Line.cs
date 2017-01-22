@@ -45,13 +45,9 @@ public class Line : MonoBehaviour
     private void SetupColor(LineColor color)
     {
     	BoxCollider2D bc2d = gameObject.GetComponent<BoxCollider2D>();
+
    		Vector2 bc2dSize = bc2d.size;
-
-    	if(color == LineColor.WHITE)
-    	{
-    		bc2d.size = new Vector2(bc2dSize.x, 0.70f);
-    	}
-
+   		
     	this.color = color;
 
     	//GetComponent<SpriteRenderer>().material = mat;
@@ -73,7 +69,7 @@ public class Line : MonoBehaviour
     	switch (color)
     	{
     		case LineColor.WHITE:
-    			
+    			bc2d.enabled = false;
     			lineRenderer.startColor = Color.white;
     			lineRenderer.endColor = Color.white;
     			spriteRenderer.color = Color.white;
