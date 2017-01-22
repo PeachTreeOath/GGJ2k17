@@ -9,6 +9,8 @@ public class AudioManager : Singleton<AudioManager>
     private AudioSource soundChannel;
     private Dictionary<string, AudioClip> soundMap;
 
+    private bool isMusicStarted = false;
+
     // Use this for initialization
     protected override void Awake()
     {
@@ -27,6 +29,13 @@ public class AudioManager : Singleton<AudioManager>
         {
             soundMap.Add(clip.name, clip);
         }
+
+        if (!isMusicStarted)
+        {
+            AudioManager.instance.PlayMusicWithIntro("music_intro", "music_loop", 100f);
+            isMusicStarted = true;
+        }
+        
     }
 
     public void PlayMusic(string name, float volume)
