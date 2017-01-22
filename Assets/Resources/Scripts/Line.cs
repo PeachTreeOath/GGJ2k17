@@ -10,14 +10,16 @@ public class Line : MonoBehaviour
     private Vector3 cameraPosition;
     private float textureOffset = 0;
     private LineRenderer lineRenderer;
-    Transform start;
-    Transform end;
+    private SpriteRenderer spriteRenderer;
+    public Transform start;
+    public Transform end;
     /// <summary>
     /// Retrieve main camera on start
     /// </summary>
     private void Start()
     {
         mainCamera = Camera.main;
+        SetupColor(color);
     }
     /*
         public void CreateLine(float x, float y, float angle, LineColor color, Material mat)
@@ -34,45 +36,70 @@ public class Line : MonoBehaviour
     {
         transform.position = new Vector2(x, y);
         transform.Rotate(Vector3.forward, angle);
-        this.color = color;
+        
         this.angle = angle;
-        //GetComponent<SpriteRenderer>().material = mat;
-        lineRenderer = gameObject.GetComponent<LineRenderer>();
-         start = transform.Find("Start");
-         end = transform.Find("End");
-        lineRenderer.SetPosition(0, start.position);
-        lineRenderer.SetPosition(1, end.position);
-        // Material[] mats = new Material[2];
-        // mats[0] = mat;
-        // mats[1] = mat2;
-        //lineRenderer.materials = mats;
-        lineRenderer.startWidth = 0.3f;
-        lineRenderer.endWidth = 0.3f;
-
-        switch (color)
-        {
-        	case LineColor.WHITE:
-        		lineRenderer.startColor = Color.white;
-        		lineRenderer.endColor = Color.white;
-        		break;
-            case LineColor.RED:
-                lineRenderer.startColor = Color.red;
-                lineRenderer.endColor = Color.red;
-                break;
-            case LineColor.GREEN:
-                lineRenderer.startColor = Color.green;
-                lineRenderer.endColor = Color.green;
-                break;
-            case LineColor.BLUE:
-                lineRenderer.startColor = Color.blue;
-                lineRenderer.endColor = Color.blue;
-                break;
-            case LineColor.YELLOW:
-                lineRenderer.startColor = Color.yellow;
-                lineRenderer.endColor = Color.yellow;
-                break;
-        }
+        
+        SetupColor(color);
     }
+
+    private void SetupColor(LineColor color)
+    {
+    	BoxCollider2D bc2d = gameObject.GetComponent<BoxCollider2D>();
+   		Vector2 bc2dSize = bc2d.size;
+
+    	if(color == LineColor.WHITE)
+    	{
+    		bc2d.size = new Vector2(bc2dSize.x, 0.70f);
+    	}
+
+    	this.color = color;
+
+    	//GetComponent<SpriteRenderer>().material = mat;
+    	lineRenderer = gameObject.GetComponent<LineRenderer>();
+    	spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+
+    	 start = transform.Find("Start");
+    	 end = transform.Find("End");
+    	lineRenderer.SetPosition(0, start.position);
+    	lineRenderer.SetPosition(1, end.position);
+    	// Material[] mats = new Material[2];
+    	// mats[0] = mat;
+    	// mats[1] = mat2;
+    	//lineRenderer.materials = mats;
+    	lineRenderer.startWidth = 0.3f;
+    	lineRenderer.endWidth = 0.3f;
+
+    	switch (color)
+    	{
+    		case LineColor.WHITE:
+    			
+    			lineRenderer.startColor = Color.white;
+    			lineRenderer.endColor = Color.white;
+    			spriteRenderer.color = Color.white;
+    			break;
+    	    case LineColor.RED:
+    	        lineRenderer.startColor = Color.red;
+    	        lineRenderer.endColor = Color.red;
+    	        spriteRenderer.color = Color.red;
+    	        break;
+    	    case LineColor.GREEN:
+    	        lineRenderer.startColor = Color.green;
+    	        lineRenderer.endColor = Color.green;
+    	        spriteRenderer.color = Color.green;
+    	        break;
+    	    case LineColor.BLUE:
+    	        lineRenderer.startColor = Color.blue;
+    	        lineRenderer.endColor = Color.blue;
+    	        spriteRenderer.color = Color.blue;
+    	        break;
+    	    case LineColor.YELLOW:
+    	        lineRenderer.startColor = Color.yellow;
+    	        lineRenderer.endColor = Color.yellow;
+    	       	spriteRenderer.color = Color.yellow;
+    	        break;
+    	}
+    }
+
     void Update()
     {
         textureOffset -= Time.deltaTime * 1f;

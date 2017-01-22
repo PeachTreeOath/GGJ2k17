@@ -551,7 +551,7 @@ Prefab:
     - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
         type: 2}
       propertyPath: numLines
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
         type: 2}
@@ -637,6 +637,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   angle: 0
+  start: {fileID: 0}
+  end: {fileID: 0}
 --- !u!212 &825320053
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -721,6 +723,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: 0
   angle: 0
+  start: {fileID: 0}
+  end: {fileID: 0}
 --- !u!212 &1049967269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1128,6 +1132,11 @@ Prefab:
         type: 2}
       propertyPath: numLines
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114647010190886070, guid: 11b1a48491f343149909d553c255e369,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11b1a48491f343149909d553c255e369, type: 2}

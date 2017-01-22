@@ -12,6 +12,13 @@ public class LineGenerator : Singleton<LineGenerator>
     private float previousCamLoc = 0;
     private float currCamLoc = 0;
 
+    private float previousBoundsGenLoc = 0;
+    private float currBoundsGenLoc = 0;
+    private int boundsGenFreq = 10;
+
+    public float topLineY = 4.8f;
+    public float botLineY = -2.85f;
+
     /// <summary>
     /// Exposes the delta between camera positions required to generate a new line. 
     /// Every LINE_DELTA units, a new line is created.
@@ -48,10 +55,39 @@ public class LineGenerator : Singleton<LineGenerator>
     // Create a sequence of starting lines for tutorial. Currently just gens 1 line for testing
     private void GenStartLines()
     {
-        // float camTop = Camera.main.gameObject.transform.position.y + 4.8f;
-        // GameObject topLineObj = Instantiate<GameObject>(lineFab);
-        // Line topLine = topLineObj.GetComponent<Line>();
-        // topLine.CreateLine(0, camTop, 0, LineColor.RED);
+        float camTop = Camera.main.gameObject.transform.position.y + topLineY;
+        GameObject topLineObj0 = Instantiate<GameObject>(lineFab);
+        Line topLine0 = topLineObj0.GetComponent<Line>();
+        topLine0.CreateLine(0, camTop, 0, LineColor.WHITE);
+
+        GameObject topLineObj1 = Instantiate<GameObject>(lineFab);
+        Line topLine1 = topLineObj1.GetComponent<Line>();
+        topLine1.CreateLine(topLine0.end.position.x, camTop, 0, LineColor.WHITE);
+
+        GameObject topLineObj2 = Instantiate<GameObject>(lineFab);
+        Line topLine2 = topLineObj2.GetComponent<Line>();
+        topLine2.CreateLine(topLine1.end.position.x, camTop, 0, LineColor.WHITE);
+
+        GameObject topLineObj3 = Instantiate<GameObject>(lineFab);
+        Line topLine3 = topLineObj3.GetComponent<Line>();
+        topLine2.CreateLine(topLine2.end.position.x, camTop, 0, LineColor.WHITE);
+
+        float camBot = Camera.main.gameObject.transform.position.y + botLineY;
+        GameObject botLineObj0 = Instantiate<GameObject>(lineFab);
+        Line botLine0 = botLineObj0.GetComponent<Line>();
+        botLine0.CreateLine(0, camBot, 0, LineColor.WHITE);
+
+        GameObject botLineObj1 = Instantiate<GameObject>(lineFab);
+        Line botLine1 = botLineObj1.GetComponent<Line>();
+        botLine1.CreateLine(botLine0.end.position.x, camBot, 0, LineColor.WHITE);
+
+        GameObject botLineObj2 = Instantiate<GameObject>(lineFab);
+        Line botLine2 = botLineObj2.GetComponent<Line>();
+        botLine2.CreateLine(botLine1.end.position.x, camBot, 0, LineColor.WHITE);
+
+        GameObject botLineObj3 = Instantiate<GameObject>(lineFab);
+        Line botLine3 = botLineObj3.GetComponent<Line>();
+        botLine2.CreateLine(botLine2.end.position.x, camBot, 0, LineColor.WHITE);
 
         GameObject redLineObj = Instantiate<GameObject>(lineFab);
         Line redLine = redLineObj.GetComponent<Line>();
@@ -199,6 +235,22 @@ public class LineGenerator : Singleton<LineGenerator>
             GenLineAt(currCamLoc, GetRandomColor());
 
             previousCamLoc = currCamLoc;
+        }
+
+        currBoundsGenLoc = Camera.main.gameObject.transform.position.x;
+        if (currBoundsGenLoc - previousBoundsGenLoc > boundsGenFreq)
+        {        
+            float camTop = Camera.main.gameObject.transform.position.y + topLineY;
+            GameObject topLineObj = Instantiate<GameObject>(lineFab);
+            Line topLine = topLineObj.GetComponent<Line>();
+            topLine.CreateLine(currBoundsGenLoc + 80, camTop, 0, LineColor.WHITE);
+
+            float camBot = Camera.main.gameObject.transform.position.y + botLineY;
+            GameObject botLineObj = Instantiate<GameObject>(lineFab);
+            Line botLine = botLineObj.GetComponent<Line>();
+            botLine.CreateLine(currBoundsGenLoc + 80, camBot, 0, LineColor.WHITE);
+
+            previousBoundsGenLoc = currBoundsGenLoc;
         }
     }
 }
