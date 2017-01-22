@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4124041277716030}
   - component: {fileID: 114178600676538006}
-  - component: {fileID: 114506410340871234}
   - component: {fileID: 114630954611556984}
   - component: {fileID: 114647010190886070}
   m_Layer: 0
@@ -58,19 +57,6 @@ MonoBehaviour:
   redMat: {fileID: 0}
   greenMat: {fileID: 0}
   yellowMat: {fileID: 0}
---- !u!114 &114506410340871234
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1143738903597746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d7b167145f94543b0fd85278c9972a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numLines: 5
-  LINE_DELTA: 20
 --- !u!114 &114630954611556984
 MonoBehaviour:
   m_ObjectHideFlags: 1
