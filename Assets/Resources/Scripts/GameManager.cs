@@ -40,6 +40,5 @@ public class GameManager : Singleton<GameManager>
 
         GameOverPanel.instance.EnableGameOverPanel();
 
-        //SceneTransitionManager.instance.ReloadRoom();
     }
 }
