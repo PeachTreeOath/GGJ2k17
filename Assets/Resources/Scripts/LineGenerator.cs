@@ -50,22 +50,22 @@ public class LineGenerator : Singleton<LineGenerator>
     {
         GameObject redLineObj = Instantiate<GameObject>(lineFab);
         Line redLine = redLineObj.GetComponent<Line>();
-        redLine.CreateLine(-7, 0, 20, LineColor.RED, GameManager.instance.redMat);
+        redLine.CreateLine(-7, 0, 20, LineColor.RED);
         redLineObj.transform.SetParent(objectFolder.transform);
 
         GameObject greenLineObj = Instantiate<GameObject>(lineFab);
         Line greenLine = greenLineObj.GetComponent<Line>();
-        greenLine.CreateLine(0, 0, -20, LineColor.GREEN, GameManager.instance.greenMat);
+        greenLine.CreateLine(0, 0, -20, LineColor.GREEN);
         greenLineObj.transform.SetParent(objectFolder.transform);
 
         GameObject blueLineObj = Instantiate<GameObject>(lineFab);
         Line blueLine = blueLineObj.GetComponent<Line>();
-        blueLine.CreateLine(7, 0, 40, LineColor.BLUE, GameManager.instance.blueMat);
+        blueLine.CreateLine(7, 0, 40, LineColor.BLUE);
         blueLineObj.transform.SetParent(objectFolder.transform);
 
         GameObject yellowLineObj = Instantiate<GameObject>(lineFab);
         Line yellowLine = yellowLineObj.GetComponent<Line>();
-        yellowLine.CreateLine(14, 0, -30, LineColor.YELLOW, GameManager.instance.yellowMat);
+        yellowLine.CreateLine(14, 0, -30, LineColor.YELLOW);
         yellowLineObj.transform.SetParent(objectFolder.transform);
     }
 
@@ -84,7 +84,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
-        line.CreateLine(parentTransform.position.x, parentTransform.position.y, angle, color, mat);
+        line.CreateLine(parentTransform.position.x, parentTransform.position.y, angle, color);
         line.GetComponent<BoxCollider2D>().enabled = false;
         line.transform.SetParent(parentTransform);
         line.transform.localScale = new Vector3(line.transform.localScale.x, 5, line.transform.localScale.z);
@@ -111,7 +111,7 @@ public class LineGenerator : Singleton<LineGenerator>
 
         GameObject lineObj = Instantiate<GameObject>(lineFab);
         Line line = lineObj.GetComponent<Line>();
-        line.CreateLine(x, 0, angle, color, mat);
+        line.CreateLine(x, 0, angle, color);
         lineObj.transform.SetParent(objectFolder.transform);
     }
 
@@ -170,21 +170,21 @@ public class LineGenerator : Singleton<LineGenerator>
         switch (color)
         {
             case LineColor.RED:
-                mat = GameManager.instance.redMat;
+                mat = GameManager.instance.redGlowMat;
                 break;
             case LineColor.GREEN:
-                mat = GameManager.instance.greenMat;
+                mat = GameManager.instance.greenGlowMat;
                 break;
             case LineColor.BLUE:
-                mat = GameManager.instance.blueMat;
+                mat = GameManager.instance.blueGlowMat;
                 break;
             case LineColor.YELLOW:
-                mat = GameManager.instance.yellowMat;
+                mat = GameManager.instance.yellowGlowMat;
                 break;
         }
         return mat;
     }
-
+    
     // Update is called once per frame
     void Update()
     {
