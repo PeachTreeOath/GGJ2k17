@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f; // Watch out for stale inspector data here...
+    public float distanceScalar; // Multiplies by X distance to create displayed distance number
 
     private Line currLine;
     private LineColor currColor;
