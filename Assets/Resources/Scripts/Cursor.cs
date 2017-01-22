@@ -44,7 +44,7 @@ public class Cursor : MonoBehaviour
         }
 
         // Detect spacebar / enter to drop line
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Place"))
         {
             previewLine.GetComponent<BoxCollider2D>().enabled = true;
             previewLine.transform.SetParent(objectFolder.transform);
