@@ -406,6 +406,16 @@ Prefab:
       value: 
       objectReference: {fileID: 1535376306412868, guid: 9f715ea1e0dcce44499c1203f9510e06,
         type: 2}
+    - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
+        type: 2}
+      propertyPath: numLines
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
+        type: 2}
+      propertyPath: LINE_DELTA
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef27de54ceeedcc4286ee88b1a849b78, type: 2}
   m_IsPrefabParent: 0
