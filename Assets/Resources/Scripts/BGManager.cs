@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BGManager : MonoBehaviour
 {
-
+    public float scrollSpeed;
     public int numBgs;
     private GameObject bgFab;
     private Transform camPosition;
@@ -25,6 +25,7 @@ public class BGManager : MonoBehaviour
             GameObject newBG = Instantiate<GameObject>(bgFab);
             newBG.transform.position = new Vector2(currX, 0);
             currX += bgFab.GetComponent<SpriteRenderer>().bounds.size.x;
+            newBG.transform.SetParent(camPosition);
             bgs.Add(newBG);
         }
     }
@@ -34,6 +35,7 @@ public class BGManager : MonoBehaviour
     {
         foreach (GameObject bg in bgs)
         {
+            bg.transform.position -= new Vector3(scrollSpeed * Time.deltaTime, 0, 0);
             if (bg.transform.position.x < camPosition.transform.position.x - 25)
             {
                 bg.transform.position += new Vector3(totalWidth, 0, 0);
