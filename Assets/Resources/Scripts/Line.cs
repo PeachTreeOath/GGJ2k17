@@ -58,10 +58,11 @@ public class Line : MonoBehaviour
     	lineRenderer = gameObject.GetComponent<LineRenderer>();
     	spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
-    	 start = transform.Find("Start");
-    	 end = transform.Find("End");
-    	lineRenderer.SetPosition(0, start.position);
-    	lineRenderer.SetPosition(1, end.position);
+        start = transform.Find("Start");
+    	end = transform.Find("End");
+
+		lineRenderer.SetPosition(0, start.position);
+		lineRenderer.SetPosition(1, end.position);
     	// Material[] mats = new Material[2];
     	// mats[0] = mat;
     	// mats[1] = mat2;
