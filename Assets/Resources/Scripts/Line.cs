@@ -75,7 +75,7 @@ public class Line : MonoBehaviour
             textureOffset += .3f;
         }
         if (lineRenderer != null)
-            lineRenderer.sharedMaterials[1].SetTextureOffset("_MainTex", new Vector2(textureOffset, 0));
+            lineRenderer.materials[1].SetTextureOffset("_MainTex", new Vector2(textureOffset, 0));
     }
     /// <summary>
     /// When the line is offscreen
