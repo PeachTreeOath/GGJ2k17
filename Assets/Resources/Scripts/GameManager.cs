@@ -18,13 +18,14 @@ public class GameManager : Singleton<GameManager>
         yellowMat = Resources.Load<Material>("Materials/YellowMat");
     }
 
+
     public void GameOver()
     {
         //CameraFollow camera = Camera.main.gameObject.GetComponent<CameraFollow>();
         Camera[] cameras = new Camera[2];
         Camera.GetAllCameras(cameras);
 
-        foreach(Camera camera in cameras)
+        foreach (Camera camera in cameras)
         {
             if (camera != null)
             {
@@ -33,5 +34,12 @@ public class GameManager : Singleton<GameManager>
                     cf.isPlaying = false;
             }
         }
+
+        //Display Game Over
+
+
+        GameOverPanel.instance.EnableGameOverPanel();
+
+        //SceneTransitionManager.instance.ReloadRoom();
     }
 }
