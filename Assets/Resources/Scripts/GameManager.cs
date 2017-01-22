@@ -17,12 +17,6 @@ public class GameManager : Singleton<GameManager>
         greenMat = Resources.Load<Material>("Materials/GreenMat");
         yellowMat = Resources.Load<Material>("Materials/YellowMat");
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void GameOver()
     {
