@@ -48,6 +48,11 @@ public class LineGenerator : Singleton<LineGenerator>
     // Create a sequence of starting lines for tutorial. Currently just gens 1 line for testing
     private void GenStartLines()
     {
+        // float camTop = Camera.main.gameObject.transform.position.y + 4.8f;
+        // GameObject topLineObj = Instantiate<GameObject>(lineFab);
+        // Line topLine = topLineObj.GetComponent<Line>();
+        // topLine.CreateLine(0, camTop, 0, LineColor.RED);
+
         GameObject redLineObj = Instantiate<GameObject>(lineFab);
         Line redLine = redLineObj.GetComponent<Line>();
         redLine.CreateLine(-7, 0, 20, LineColor.RED);

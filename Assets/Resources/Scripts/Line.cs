@@ -49,6 +49,10 @@ public class Line : MonoBehaviour
 
         switch (color)
         {
+        	case LineColor.WHITE:
+        		lineRenderer.startColor = Color.white;
+        		lineRenderer.endColor = Color.white;
+        		break;
             case LineColor.RED:
                 lineRenderer.startColor = Color.red;
                 lineRenderer.endColor = Color.red;

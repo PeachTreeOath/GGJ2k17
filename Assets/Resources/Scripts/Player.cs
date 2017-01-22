@@ -95,6 +95,13 @@ public class Player : MonoBehaviour
         Line line = col.GetComponent<Line>();
         if (line != null)
         {
+        	if (line.color == LineColor.WHITE)
+        	{
+        		GameManager.instance.GameOver();
+        		speed = 0;
+        		BGManager.instance.scrollSpeed = 0;
+        	}
+
             if (line.color == currColor)
             {
                 currLine = line;
