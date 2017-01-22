@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  distanceScalar: 3
+  distanceTravelled: 0
 --- !u!198 &198089095829775664
 ParticleSystem:
   m_ObjectHideFlags: 1

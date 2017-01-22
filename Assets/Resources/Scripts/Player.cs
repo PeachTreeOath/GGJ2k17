@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f; // Watch out for stale inspector data here...
-    public float distanceScalar = -2000f; // Multiplies by X distance to create displayed distance number
 
     private Line currLine;
     private LineColor currColor;
@@ -85,8 +84,8 @@ public class Player : MonoBehaviour
         Vector2 movementVector = currLine.transform.up * speed * Time.deltaTime;
         transform.Translate(movementVector);
 
-        distanceTravelled = transform.position.x * distanceScalar + 6;
-        //ScorePanel.instance.distance += movementVector.x * distanceScalar;
+        //Have to offset this by the location of the player starting location
+        distanceTravelled = (transform.position.x + 7) * distanceScalar ;
     }
 
     void OnTriggerEnter2D(Collider2D col)
