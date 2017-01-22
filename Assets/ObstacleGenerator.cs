@@ -16,8 +16,8 @@ public class ObstacleGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objectFolder = GameObject.Find("Objects");
-        GenObstacle(10, Random.Range(0,5));
-        GenObstacle(20, Random.Range(0, 5));
+       // GenObstacle(10, Random.Range(0,5));
+GenObstacle(40, 3);
 
     }
 
@@ -32,7 +32,7 @@ public class ObstacleGenerator : MonoBehaviour {
 		GameObject obsObj = Instantiate<GameObject>(obstacles[type]);
 		Vector3 obsTrans = obsObj.transform.position;
         //TODO: Change before deploy
-		obsObj.transform.position = new Vector3(offset + 20, obsTrans.y, obsTrans.z);
+		obsObj.transform.position = new Vector3(offset + 40, obsTrans.y, obsTrans.z);
 		obsObj.transform.SetParent(objectFolder.transform);
 	}
 
