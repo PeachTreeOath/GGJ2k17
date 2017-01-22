@@ -11,6 +11,7 @@ public class ScorePanel : Singleton<ScorePanel>
 
     private Text distanceField;
     //public float distance;
+    public bool isGameOver;
 
     private Player player;
 
@@ -24,6 +25,10 @@ public class ScorePanel : Singleton<ScorePanel>
 	
 	// Update is called once per frame
 	void Update () {
+        if(isGameOver)
+        {
+            return;
+        }
         timeElapsed += Time.deltaTime;
         int timeElapsedInt = (int)timeElapsed;
 

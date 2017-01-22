@@ -55,10 +55,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        //Display Game Over
-
-
+        //Display Game 
         GameOverPanel.instance.EnableGameOverPanel();
-
     }
 }

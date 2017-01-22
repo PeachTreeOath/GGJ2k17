@@ -16,21 +16,25 @@ public class ObstacleGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objectFolder = GameObject.Find("Objects");
-	}
-	
-	public void GenObstacle(float offset)
+        GenObstacle(10, Random.Range(0,6));
+        GenObstacle(20, Random.Range(0, 6));
+
+    }
+
+    public void GenObstacle(float offset)
 	{
-		int type = UnityEngine.Random.Range(0, obstacles.Count);
+		int type = UnityEngine.Random.Range(0, obstacles.Count+1);
 		GenObstacle(offset, type);
 	}
 
 	public void GenObstacle(float offset, int type)
 	{
-		Debug.Assert(type > 0 && type <= obstacles.Count);
+
 
 		GameObject obsObj = Instantiate<GameObject>(obstacles[type]);
 		Vector3 obsTrans = obsObj.transform.position;
-		obsObj.transform.position = new Vector3(offset + 90, obsTrans.y, obsTrans.z);
+        //TODO: Change before deploy
+		obsObj.transform.position = new Vector3(offset + 20, obsTrans.y, obsTrans.z);
 		obsObj.transform.SetParent(objectFolder.transform);
 	}
 
