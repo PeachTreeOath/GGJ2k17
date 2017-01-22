@@ -35,7 +35,7 @@ public class Line : MonoBehaviour
         {
             cameraPosition = mainCamera.gameObject.transform.position;
       
-            if (cameraPosition.x - transform.position.x > 20)
+            if (cameraPosition.x - transform.position.x > 30)
             {
                 Destroy(gameObject);
             }

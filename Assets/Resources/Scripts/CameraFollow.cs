@@ -4,7 +4,6 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 
-    private Camera cam;
     private float distFromPlayer;
     private GameObject player;
     public bool isPlaying = true;
@@ -12,7 +11,6 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        cam = GetComponent<Camera>();
         distFromPlayer = transform.position.x - player.transform.position.x;
     }
 
