@@ -91,6 +91,29 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6220707 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1075875721381834, guid: ef27de54ceeedcc4286ee88b1a849b78,
+    type: 2}
+  m_PrefabInternal: {fileID: 546020373}
+--- !u!114 &6220711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 6220707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c963bf64aa11d4583fa7fc83436250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 1716193215775156, guid: a8ace87c6a6dee2449a7842b0ba73c06, type: 2}
+  - {fileID: 1064687115872352, guid: c161eaaaeef608f4ea24aa62cb3acda5, type: 2}
+  - {fileID: 1708039680161814, guid: 40c39ba5e67c4c94f983eb1a96921c38, type: 2}
+  - {fileID: 1452607374431656, guid: 6c45224c37aa6904ebea63a94bef55dd, type: 2}
+  - {fileID: 1429446262432084, guid: 920ea7a05aef6534d81dc14b77524fc4, type: 2}
+  obstacleTimeUnits: 20
 --- !u!1 &87054227
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +399,16 @@ Prefab:
     - target: {fileID: 4107678726174710, guid: ef27de54ceeedcc4286ee88b1a849b78, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
+        type: 2}
+      propertyPath: LINE_DELTA
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114597634191528596, guid: ef27de54ceeedcc4286ee88b1a849b78,
+        type: 2}
+      propertyPath: numLines
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef27de54ceeedcc4286ee88b1a849b78, type: 2}

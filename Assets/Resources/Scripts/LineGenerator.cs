@@ -4,7 +4,7 @@ using UnityEngine;
 public class LineGenerator : Singleton<LineGenerator>
 {
 
-    public  GameObject lineFab;
+    public GameObject lineFab;
 
     private GameObject objectFolder;
     public int numLines = 10; // Maybe change to public later
@@ -123,11 +123,12 @@ public class LineGenerator : Singleton<LineGenerator>
     private void GenLineAt(float offset, LineColor color)
     {
         Material mat = GetMaterialFromColor(color);
+        GenLine(color, offset + 90);
         // Temp code to gen lines in starting area
-        float x = UnityEngine.Random.Range(offset + 90, offset + 90);
+        // float x = UnityEngine.Random.Range(offset + 90, offset + 90);
         // Lines currently cap at 30 deg angle minimums, change as needed
 
-        GenLine(color, x);
+        // GenLine(color, x);
 
         // float angle = Random.Range(50, 130);
 
