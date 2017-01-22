@@ -6,10 +6,13 @@ public class Player : MonoBehaviour
 {
 
     public float speed = 10f; // Watch out for stale inspector data here...
+    public float distanceScalar = -2000f; // Multiplies by X distance to create displayed distance number
 
     private Line currLine;
     private LineColor currColor;
     private SpriteRenderer spriteRenderer;
+
+    public float distanceTravelled;
 
     ParticleSystem ps;
 
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour
         ps = gameObject.GetComponentInChildren(typeof(ParticleSystem)) as ParticleSystem;
 
         SwitchColor();
+
+        distanceTravelled = 0f;
     }
 
     private void SwitchColor()
@@ -77,7 +82,11 @@ public class Player : MonoBehaviour
         }
         SwitchColor();
 
-        transform.Translate(currLine.transform.up * speed * Time.deltaTime);
+        Vector2 movementVector = currLine.transform.up * speed * Time.deltaTime;
+        transform.Translate(movementVector);
+
+        distanceTravelled = transform.position.x * distanceScalar + 6;
+        //ScorePanel.instance.distance += movementVector.x * distanceScalar;
     }
 
     void OnTriggerEnter2D(Collider2D col)

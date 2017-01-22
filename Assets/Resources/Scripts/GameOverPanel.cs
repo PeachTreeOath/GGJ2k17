@@ -8,7 +8,7 @@ public class GameOverPanel : Singleton<GameOverPanel>
     bool isGameOver = false;
     private Text[] components;
 
-    protected override void Awake()
+    override protected void Awake()
     {
         base.Awake();
         components = GetComponentsInChildren<Text>();

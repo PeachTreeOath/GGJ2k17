@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScorePanel : MonoBehaviour {
+public class ScorePanel : Singleton<ScorePanel>
+{
 
-    Text timeValue;
-    float timeElapsed;
+    private Text timeValue;
+    private float timeElapsed;
 
-	// Use this for initialization
-	void Awake () {
+    private Text distanceField;
+    //public float distance;
+
+    private Player player;
+
+    // Use this for initialization
+    override protected void Awake () {
+        player = GameObject.FindObjectOfType<Player>();
         timeValue = transform.Find("TimeValue").GetComponent<Text>();
+        distanceField = transform.Find("DistanceValue").GetComponent<Text>();
         timeElapsed = 0f;
 	}
 	
@@ -18,6 +26,8 @@ public class ScorePanel : MonoBehaviour {
 	void Update () {
         timeElapsed += Time.deltaTime;
         int timeElapsedInt = (int)timeElapsed;
+
+
         //convert timeElapsed to displayTime
         int hours = timeElapsedInt / 3600;
         int timeLeft = timeElapsedInt % 3600;
@@ -30,5 +40,10 @@ public class ScorePanel : MonoBehaviour {
         string hoursPadded = (hours < 10) ? "0" + hours : "" + hours;
         string timeString = hoursPadded + ":" + minsPadded + ":" + secsPadded;
         timeValue.text = timeString;
+
+        //make distance displayable
+        int distanceInt = (int)player.distanceTravelled;
+        distanceField.text = distanceInt.ToString();
+
 	}
 }
